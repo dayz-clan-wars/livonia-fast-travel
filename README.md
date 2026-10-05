@@ -2,9 +2,11 @@
 
 Fast travel for a DayZ Livonia server. You don't need any mods, only the game's own `cfggameplay.json` features (object spawners and player restricted areas).
 
-- **Walk into any well pump, outhouse or village bus stop** on the map (209 of them) and you are taken to a hub: a garage floating high in the sky.
+- **Log out standing at any well pump, outhouse or village bus stop** on the map (209 of them). When you log back in, you are in a hub: a garage floating high in the sky.
 - **The hub has 31 portable toilets**, one per town, each with the town's name spelled out on the floor in front of it.
-- **Step into a toilet** and you land on open ground near that town, at one of ten spots kept clear of buildings, roads and water.
+- **Log out standing in a toilet.** When you log back in, you are on open ground near that town, at one of ten spots kept clear of buildings, roads and water.
+
+Walking into a teleport point does nothing on its own. The game only moves a player who logs in inside one, so travelling always means logging out at the point and logging back in.
 
 ## Requirements
 
@@ -106,13 +108,14 @@ The toilets are in alphabetical order around the hub. Facing the closed end of t
 |---|---|
 | `teleports.json` | The hub: a `Land_Garage_Big` at 100, 1000, 100 (high above the map's south-west corner) with 31 `Land_Misc_Toilet_Mobile` inside. |
 | `teleport-names.json` | The town names on the floor, drawn in a 3x5 pixel font with about 1,600 tiny `StaticObj_Misc_BoxWooden`. Optional: leave it out of `objectSpawnersArr` and the hub works the same, just unlabelled. |
-| `pra-teleport-hub.json` | A 2 x 1.5 x 2 m box on each well pump, outhouse and village bus stop. Walking into one sends you to the hub. |
-| `pra-teleport-<town>.json` | A box on that town's toilet in the hub and ten arrival spots around the town. The game sets your height to ground level when you arrive. |
+| `pra-teleport-hub.json` | A 2 x 1.5 x 2 m box on each well pump, outhouse and village bus stop. Log out in one and you log back in at the hub. |
+| `pra-teleport-<town>.json` | A box on that town's toilet in the hub and ten arrival spots around the town. Log out in the toilet and you log back in at one of the spots. The game sets your height to ground level. |
 
 ## Good to know
 
-- **A player who logs in inside a box is teleported too**, since that is how player restricted areas work. Someone who logs out standing in an outhouse will log back in at the hub.
-- **You arrive at the spot nearest to you, not a random one.** From the hub, each town's toilet will usually send you to the same one of its ten spots.
+- **Teleports happen at login, not on contact.** The files use DayZ's player restricted areas, which move a player who logs in inside one of their boxes. Expect players to log out at an outhouse just to get to the hub, and anyone who happens to log out in one to wake up there.
+- **The logout timer still applies.** Travelling takes as long as a logout and a login, so it is no escape from a fight.
+- **You arrive at the spot nearest to where you logged out, not a random one.** From the hub, each town's toilet will usually send you to the same one of its ten spots.
 - **To remove it**, take the files back out of both lists in `cfggameplay.json` and restart.
 
 ## Credits
