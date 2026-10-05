@@ -122,4 +122,4 @@ The toilets are in alphabetical order around the hub. Facing the closed end of t
 
 The pixel font is the 3x5 "minifont" by /u/Udzu, from the r/PixelArt post "Smallest legible pixel fonts?".
 
-Made for the DayZ Clan Wars Livonia server.
+Made for the DayZ Clan Wars Livonia server. There is also a [Chernarus version](https://github.com/dayz-clan-wars/chernarus-fast-travel).
